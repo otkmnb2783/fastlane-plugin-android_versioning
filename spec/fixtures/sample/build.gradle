@@ -1,0 +1,13 @@
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 67890
+        versionName '2.0.0'
+    }
+
+}
