@@ -12,11 +12,6 @@ describe Fastlane::Actions::GetVersionNameAction do
       expect(execute_lane_test).to eq("1.0.0")
     end
 
-    it "should set VERSION_NAME shared value" do
-      execute_lane_test
-      expect(Fastlane::Actions.lane_context[Fastlane::Actions::SharedValues::VERSION_NAME]).to eq("1.0.0")
-    end
-
     it "should return verson name from sample/build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         get_version_name(

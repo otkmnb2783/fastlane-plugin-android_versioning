@@ -12,11 +12,6 @@ describe Fastlane::Actions::GetVersionCodeAction do
       expect(execute_lane_test).to eq("12345")
     end
 
-    it "should set VERSION_CODE shared value" do
-      execute_lane_test
-      expect(Fastlane::Actions.lane_context[Fastlane::Actions::SharedValues::VERSION_CODE]).to eq("12345")
-    end
-
     it "should return verson code from sample/build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         get_version_code(

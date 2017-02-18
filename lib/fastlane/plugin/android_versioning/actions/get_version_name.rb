@@ -2,17 +2,12 @@ require 'fileutils'
 
 module Fastlane
   module Actions
-    module SharedValues
-      VERSION_NAME = :VERSION_NAME
-    end
     class GetVersionNameAction < Action
       def self.run(params)
-        name = GetValueFromBuildAction.run(
+        GetValueFromBuildAction.run(
           app_folder_name: params[:app_folder_name],
           key: "versionName"
         )
-        Actions.lane_context[SharedValues::VERSION_NAME] = name
-        name
       end
 
       #####################################################

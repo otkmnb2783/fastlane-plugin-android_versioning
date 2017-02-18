@@ -43,12 +43,6 @@ module Fastlane
         ]
       end
 
-      def self.output
-        [
-          ['PROPERTY_VALUE', 'The property value']
-        ]
-      end
-
       def self.authors
         ["Manabu OHTAKE"]
       end
