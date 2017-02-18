@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = %q{manabu2783@hotmail.com}
 
   spec.summary       = %q{Allows to set/get app version name and version code directly to/from build.gradle}
-  # spec.homepage      = "https://github.com/otkmnb2783/fastlane-plugin-android_versioning"
+  spec.homepage      = "https://github.com/otkmnb2783/fastlane-plugin-android_versioning"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
