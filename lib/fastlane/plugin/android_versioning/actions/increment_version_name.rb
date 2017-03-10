@@ -10,6 +10,7 @@ module Fastlane
       def self.run(params)
         if params[:version_name].nil? or params[:version_name].empty?
           current_version = GetVersionNameAction.run(params)
+          UI.user_error!("Your current version (#{current_version}) does not respect the format A.B.C") unless current_version =~ /\d+.\d+.\d+/
           version = current_version.split(".").map(&:to_i)
           case params[:bump_type]
           when "patch"
