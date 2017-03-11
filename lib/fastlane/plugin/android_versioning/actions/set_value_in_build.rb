@@ -5,9 +5,9 @@ module Fastlane
   module Actions
     class SetValueInBuildAction < Action
       def self.run(params)
-        app_folder_name ||= params[:app_folder_name]
+        app_project_dir ||= params[:app_project_dir]
         found = false
-        Dir.glob("**/#{app_folder_name}/build.gradle") do |path|
+        Dir.glob("**/#{app_project_dir}/build.gradle") do |path|
           begin
             temp_file = Tempfile.new('versioning')
             File.open(path, 'r') do |file|
@@ -37,12 +37,12 @@ module Fastlane
       #####################################################
       def self.available_options
         [
-          FastlaneCore::ConfigItem.new(key: :app_folder_name,
-                                  env_name: "ANDROID_VERSIONING_APP_FOLDER_NAME",
-                               description: "The name of the application source folder in the Android project (default: app)",
+          FastlaneCore::ConfigItem.new(key: :app_project_dir,
+                                  env_name: "ANDROID_VERSIONING_APP_PROJECT_DIR",
+                               description: "The path to the application source folder in the Android project (default: android/app)",
                                   optional: true,
                                       type: String,
-                             default_value: "app"),
+                             default_value: "android/app"),
           FastlaneCore::ConfigItem.new(key: :key,
                                description: "The property key",
                                       type: String),
