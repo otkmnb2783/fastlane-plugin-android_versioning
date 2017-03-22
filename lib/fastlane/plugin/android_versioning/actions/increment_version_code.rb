@@ -9,7 +9,7 @@ module Fastlane
     class IncrementVersionCodeAction < Action
       def self.run(params)
         current_version_code = GetVersionCodeAction.run(params)
-        new_version_code = params[:version_code].nil? || params[:version_code].empty? ? current_version_code.to_i + 1 : params[:version_code].to_i
+        new_version_code = params[:version_code].nil? ? current_version_code.to_i + 1 : params[:version_code].to_i
         SetValueInBuildAction.run(
           app_folder_name: params[:app_folder_name],
           key: "versionCode",

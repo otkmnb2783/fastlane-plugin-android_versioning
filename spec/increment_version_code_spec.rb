@@ -12,8 +12,18 @@ describe Fastlane::Actions::IncrementVersionCodeAction do
       end").runner.execute(:test)
     end
 
+    def execute_lane_option_test
+      Fastlane::FastFile.new.parse("lane :test do
+        increment_version_code(version_code: 123457)
+      end").runner.execute(:test)
+    end
+
     it "should return incremented version code from default build.gradle" do
       expect(execute_lane_test).to eq("12346")
+    end
+
+    it "should return incremented fixmun version code from default build.gradle" do
+      expect(execute_lane_option_test).to eq("123457")
     end
 
     it "should set VERSION_CODE shared value" do
