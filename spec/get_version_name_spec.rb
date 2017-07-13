@@ -15,7 +15,7 @@ describe Fastlane::Actions::GetVersionNameAction do
     it "should return verson name from sample/build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         get_version_name(
-          app_folder_name: \"sample\"
+          app_project_dir: \"sample\"
         )
       end").runner.execute(:test)
       expect(result).to eq("2.0.0")

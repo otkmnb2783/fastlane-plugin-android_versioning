@@ -11,7 +11,7 @@ module Fastlane
         current_version_code = GetVersionCodeAction.run(params)
         new_version_code = params[:version_code].nil? ? current_version_code.to_i + 1 : params[:version_code].to_i
         SetValueInBuildAction.run(
-          app_folder_name: params[:app_folder_name],
+          app_project_dir: params[:app_project_dir],
           key: "versionCode",
           value: new_version_code
         )
@@ -24,12 +24,12 @@ module Fastlane
       #####################################################
       def self.available_options
         [
-          FastlaneCore::ConfigItem.new(key: :app_folder_name,
-                                    env_name: "ANDROID_VERSIONING_APP_FOLDER_NAME",
-                                 description: "The name of the application source folder in the Android project (default: app)",
+          FastlaneCore::ConfigItem.new(key: :app_project_dir,
+                                    env_name: "ANDROID_VERSIONING_APP_PROJECT_DIR",
+                                 description: "The path to the application source folder in the Android project (default: android/app)",
                                     optional: true,
                                         type: String,
-                               default_value: "app"),
+                               default_value: "android/app"),
           FastlaneCore::ConfigItem.new(key: :version_code,
                                   env_name: "ANDROID_VERSIONING_VERSION_CODE",
                                description: "Change to a specific version (optional)",
