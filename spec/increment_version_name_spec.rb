@@ -9,7 +9,7 @@ describe Fastlane::Actions::IncrementVersionNameAction do
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
         increment_version_name(
-          app_project_dir: \"./spec/fixtures/app\",
+          app_project_dir: \"**/app\"
         )
       end").runner.execute(:test)
     end
@@ -21,7 +21,7 @@ describe Fastlane::Actions::IncrementVersionNameAction do
     it "should return incremented version name with minor from build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         increment_version_name(
-          app_project_dir: \"./spec/fixtures/app\",
+          app_project_dir: \"**/app\",
           bump_type: \"minor\"
         )
       end").runner.execute(:test)
@@ -31,7 +31,7 @@ describe Fastlane::Actions::IncrementVersionNameAction do
     it "should return incremented version name with major from build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         increment_version_name(
-          app_project_dir: \"./spec/fixtures/app\",
+          app_project_dir: \"**/app\",
           bump_type: \"major\"
         )
       end").runner.execute(:test)

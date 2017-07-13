@@ -19,7 +19,7 @@ describe Fastlane::Actions::SetValueInBuildAction do
     def build_tools_version
       Fastlane::FastFile.new.parse("lane :test do
         get_value_from_build(
-        app_project_dir: \"./spec/fixtures/app\",
+          app_project_dir: \"**/app\",
           key: \"buildToolsVersion\"
         )
       end").runner.execute(:test)
