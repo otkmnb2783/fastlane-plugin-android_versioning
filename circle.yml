@@ -1,6 +1,14 @@
-test:
-  override:
-    - bundle exec rake
 machine:
   ruby:
     version: 2.2.4
+
+dependencies:
+  cache_directories:
+    - "vendor/bundle"
+  override:
+    - gem install bundler
+    - bundle install --path=vendor/bundle
+
+test:
+  override:
+    - bundle exec rake
