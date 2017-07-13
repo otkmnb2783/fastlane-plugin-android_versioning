@@ -9,6 +9,7 @@ describe Fastlane::Actions::SetValueInBuildAction do
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
         set_value_in_build(
+          app_project_dir: \"app\",
           key: \"buildToolsVersion\",
           value: \"24.1.0\"
         )
@@ -18,12 +19,13 @@ describe Fastlane::Actions::SetValueInBuildAction do
     def build_tools_version
       Fastlane::FastFile.new.parse("lane :test do
         get_value_from_build(
+        app_project_dir: \"./spec/fixtures/app\",
           key: \"buildToolsVersion\"
         )
       end").runner.execute(:test)
     end
 
-    it "should return incremented version code from default build.gradle" do
+    it "should return incremented version code from build.gradle" do
       execute_lane_test
       expect(build_tools_version).to eq("24.1.0")
     end

@@ -8,26 +8,30 @@ describe Fastlane::Actions::IncrementVersionNameAction do
 
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
-        increment_version_name
+        increment_version_name(
+          app_project_dir: \"./spec/fixtures/app\",
+        )
       end").runner.execute(:test)
     end
 
-    it "should return incremented version name from default build.gradle" do
+    it "should return incremented version name from build.gradle" do
       expect(execute_lane_test).to eq("1.0.1")
     end
 
-    it "should return incremented version name with minor from default build.gradle" do
+    it "should return incremented version name with minor from build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         increment_version_name(
+          app_project_dir: \"./spec/fixtures/app\",
           bump_type: \"minor\"
         )
       end").runner.execute(:test)
       expect(result).to eq("1.1.0")
     end
 
-    it "should return incremented version name with major from default build.gradle" do
+    it "should return incremented version name with major from build.gradle" do
       result = Fastlane::FastFile.new.parse("lane :test do
         increment_version_name(
+          app_project_dir: \"./spec/fixtures/app\",
           bump_type: \"major\"
         )
       end").runner.execute(:test)
@@ -37,15 +41,6 @@ describe Fastlane::Actions::IncrementVersionNameAction do
     it "should set VERSION_NAME shared value" do
       result = execute_lane_test
       expect(Fastlane::Actions.lane_context[Fastlane::Actions::SharedValues::VERSION_NAME]).to eq("1.0.1")
-    end
-
-    it "should return incremented verson code from sample/build.gradle" do
-      result = Fastlane::FastFile.new.parse("lane :test do
-        increment_version_name(
-          app_project_dir: \"sample\"
-        )
-      end").runner.execute(:test)
-      expect(result).to eq("2.0.1")
     end
 
     after do

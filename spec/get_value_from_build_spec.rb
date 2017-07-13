@@ -5,12 +5,13 @@ describe Fastlane::Actions::GetValueFromBuildAction do
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
         get_value_from_build(
+          app_project_dir: \"./spec/fixtures/app\",
           key: \"buildToolsVersion\"
         )
       end").runner.execute(:test)
     end
 
-    it "should return buildToolsVersion from default build.gradle" do
+    it "should return buildToolsVersion from build.gradle" do
       result = execute_lane_test
       expect(result).to eq("24.0.2")
     end
