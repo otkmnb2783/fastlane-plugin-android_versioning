@@ -6,10 +6,10 @@ require 'fastlane/plugin/android_versioning/version'
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-android_versioning'
   spec.version       = Fastlane::AndroidVersioning::VERSION
-  spec.author        = %q{Manabu OHTAKE}
-  spec.email         = %q{manabu2783@hotmail.com}
+  spec.author        = 'Manabu OHTAKE'
+  spec.email         = 'manabu2783@hotmail.com'
 
-  spec.summary       = %q{Allows to set/get app version name and version code directly to/from build.gradle}
+  spec.summary       = 'Allows to set/get app version name and version code directly to/from build.gradle'
   spec.homepage      = "https://github.com/otkmnb2783/fastlane-plugin-android_versioning"
   spec.license       = "MIT"
 

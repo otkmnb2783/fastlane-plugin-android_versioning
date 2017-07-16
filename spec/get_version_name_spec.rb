@@ -5,7 +5,7 @@ describe Fastlane::Actions::GetVersionNameAction do
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
         get_version_name(
-          app_project_dir: \"**/app\"
+          app_project_dir: \"../**/app\"
         )
       end").runner.execute(:test)
     end

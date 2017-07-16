@@ -7,7 +7,7 @@ module Fastlane
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
         found = false
-        Dir.glob("**/#{app_project_dir}/build.gradle") do |path|
+        Dir.glob("#{app_project_dir}/build.gradle") do |path|
           begin
             temp_file = Tempfile.new('versioning')
             File.open(path, 'r') do |file|

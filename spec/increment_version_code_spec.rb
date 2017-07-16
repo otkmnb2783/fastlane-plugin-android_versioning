@@ -9,7 +9,7 @@ describe Fastlane::Actions::IncrementVersionCodeAction do
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
         increment_version_code(
-          app_project_dir: \"**/app\"
+          app_project_dir: \"../**/app\"
         )
       end").runner.execute(:test)
     end
@@ -17,7 +17,7 @@ describe Fastlane::Actions::IncrementVersionCodeAction do
     def execute_lane_option_test
       Fastlane::FastFile.new.parse("lane :test do
         increment_version_code(
-          app_project_dir: \"**/app\",
+          app_project_dir: \"../**/app\",
           version_code: 123457
         )
       end").runner.execute(:test)

@@ -5,7 +5,7 @@ describe Fastlane::Actions::GetValueFromBuildAction do
     def execute_lane_test
       Fastlane::FastFile.new.parse("lane :test do
         get_value_from_build(
-          app_project_dir: \"**/app\",
+          app_project_dir: \"../**/app\",
           key: \"buildToolsVersion\"
         )
       end").runner.execute(:test)
