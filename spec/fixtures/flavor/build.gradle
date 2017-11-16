@@ -1,0 +1,24 @@
+android {
+
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+    }
+
+    productFlavors {
+      demo {
+        applicationId "com.foo.bar"
+        versionCode 123
+        versionName "1.2.1"
+      }
+      qa {
+        applicationId "com.foo.bar.qa"
+        versionCode 456
+        versionName "1.1.1"
+      }
+    }
+
+}

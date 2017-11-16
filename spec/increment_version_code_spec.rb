@@ -23,12 +23,38 @@ describe Fastlane::Actions::IncrementVersionCodeAction do
       end").runner.execute(:test)
     end
 
+    def execute_demo_flavor_lane_option_test
+      Fastlane::FastFile.new.parse("lane :test do
+        increment_version_code(
+          app_project_dir: \"../**/flavor\",
+          flavor: \"demo\"
+        )
+      end").runner.execute(:test)
+    end
+
+    def execute_qa_flavor_lane_option_test
+      Fastlane::FastFile.new.parse("lane :test do
+        increment_version_code(
+          app_project_dir: \"../**/flavor\",
+          flavor: \"qa\"
+        )
+      end").runner.execute(:test)
+    end
+
     it "should return incremented version code from build.gradle" do
       expect(execute_lane_test).to eq("12346")
     end
 
     it "should return incremented fixmun version code from build.gradle" do
       expect(execute_lane_option_test).to eq("123457")
+    end
+
+    it "should return incremented fixmun version code from flavor/build.gradle (demo)" do
+      expect(execute_demo_flavor_lane_option_test).to eq("124")
+    end
+
+    it "should return incremented fixmun version code from flavor/build.gradle (qa)" do
+      expect(execute_qa_flavor_lane_option_test).to eq("457")
     end
 
     it "should set VERSION_CODE shared value" do

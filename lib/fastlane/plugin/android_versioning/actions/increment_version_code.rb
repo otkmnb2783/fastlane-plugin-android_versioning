@@ -12,6 +12,7 @@ module Fastlane
         new_version_code = params[:version_code].nil? ? current_version_code.to_i + 1 : params[:version_code].to_i
         SetValueInBuildAction.run(
           app_project_dir: params[:app_project_dir],
+          flavor: params[:flavor],
           key: "versionCode",
           value: new_version_code
         )
@@ -30,6 +31,11 @@ module Fastlane
                                     optional: true,
                                         type: String,
                                default_value: "android/app"),
+          FastlaneCore::ConfigItem.new(key: :flavor,
+                                    env_name: "ANDROID_VERSIONING_FLAVOR",
+                                 description: "The product flavor name (optional)",
+                                    optional: true,
+                                        type: String),
           FastlaneCore::ConfigItem.new(key: :version_code,
                                   env_name: "ANDROID_VERSIONING_VERSION_CODE",
                                description: "Change to a specific version (optional)",

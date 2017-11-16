@@ -14,6 +14,24 @@ describe Fastlane::Actions::IncrementVersionNameAction do
       end").runner.execute(:test)
     end
 
+    def execute_demo_flavor_lane_option_test
+      Fastlane::FastFile.new.parse("lane :test do
+        increment_version_name(
+          app_project_dir: \"../**/flavor\",
+          flavor: \"demo\"
+        )
+      end").runner.execute(:test)
+    end
+
+    def execute_qa_flavor_lane_option_test
+      Fastlane::FastFile.new.parse("lane :test do
+        increment_version_name(
+          app_project_dir: \"../**/flavor\",
+          flavor: \"qa\"
+        )
+      end").runner.execute(:test)
+    end
+
     it "should return incremented version name from build.gradle" do
       expect(execute_lane_test).to eq("1.0.1")
     end
@@ -36,6 +54,14 @@ describe Fastlane::Actions::IncrementVersionNameAction do
         )
       end").runner.execute(:test)
       expect(result).to eq("2.0.0")
+    end
+
+    it "should return incremented fixmun version name from flavor/build.gradle (demo)" do
+      expect(execute_demo_flavor_lane_option_test).to eq("1.2.2")
+    end
+
+    it "should return incremented fixmun version name from flavor/build.gradle (qa)" do
+      expect(execute_qa_flavor_lane_option_test).to eq("1.1.2")
     end
 
     it "should set VERSION_NAME shared value" do

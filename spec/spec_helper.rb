@@ -21,7 +21,8 @@ def remove_fixture
   source = "/tmp/fastlane/fixtures"
   destination = "./spec"
   [
-    "#{destination}/fixtures/app/build.gradle"
+    "#{destination}/fixtures/app/build.gradle",
+    "#{destination}/fixtures/flavor/build.gradle"
   ].each do |f|
     FileUtils.rm f
   end

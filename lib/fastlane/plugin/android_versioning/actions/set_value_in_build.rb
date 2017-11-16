@@ -6,15 +6,26 @@ module Fastlane
     class SetValueInBuildAction < Action
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
+        flavor = params[:flavor]
         found = false
         Dir.glob("#{app_project_dir}/build.gradle") do |path|
           begin
             temp_file = Tempfile.new('versioning')
             File.open(path, 'r') do |file|
               file.each_line do |line|
-                unless line.include? "#{params[:key]} " and !found
-                  temp_file.puts line
-                  next
+                if flavor.nil? or flavor.empty?
+                  unless line.include? "#{params[:key]} " and !found
+                    temp_file.puts line
+                    next
+                  end
+                else
+                  if line.gsub(" ", "").include? flavor
+                    found = true
+                  end
+                  unless line.include? "#{params[:key]} " and found
+                    temp_file.puts line
+                    next
+                  end
                 end
                 components = line.strip.split(' ')
                 value = components.last.tr("\"", "").tr("\'", "")
@@ -43,6 +54,11 @@ module Fastlane
                                   optional: true,
                                       type: String,
                              default_value: "android/app"),
+          FastlaneCore::ConfigItem.new(key: :flavor,
+                                    env_name: "ANDROID_VERSIONING_FLAVOR",
+                                 description: "The product flavor name (optional)",
+                                    optional: true,
+                                        type: String),
           FastlaneCore::ConfigItem.new(key: :key,
                                description: "The property key",
                                       type: String),
