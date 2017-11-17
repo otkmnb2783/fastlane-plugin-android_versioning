@@ -30,7 +30,7 @@ module Fastlane
                 components = line.strip.split(' ')
                 value = components.last.tr("\"", "").tr("\'", "")
                 line.replace line.sub(value, params[:value].to_s)
-                found = true
+                found = false
                 temp_file.puts line
               end
               file.close

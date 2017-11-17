@@ -26,6 +26,7 @@ module Fastlane
                 end
                 components = line.strip.split(' ')
                 value = components.last.tr("\"", "").tr("\'", "")
+                found = false
                 break
               end
               file.close
