@@ -14,7 +14,7 @@ module Fastlane
                 unless line.include? "#{params[:key]} " and !found
                   next
                 end
-                components = line.strip.split(' ')
+                components = line.strip.split(' ').reject { |item| item.start_with?("//") }
                 value = components.last.tr("\"", "").tr("\'", "")
                 break
               end
