@@ -6,7 +6,6 @@ module Fastlane
     class SetValueInBuildAction < Action
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
-        puts "searching for version code: #{params[:key]}"
         regex = Regexp.new("(#{params[:key]}\\s+)([\'\"])?.*([\'\"])")
         found = false
 
