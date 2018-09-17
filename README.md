@@ -2,6 +2,7 @@
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-android_versioning)
 [![Gem Version](https://badge.fury.io/rb/fastlane-plugin-android_versioning.svg)](https://badge.fury.io/rb/fastlane-plugin-android_versioning)
+[![CircleCI](https://circleci.com/gh/otkmnb2783/fastlane-plugin-android_versioning.svg?style=svg)](https://circleci.com/gh/otkmnb2783/fastlane-plugin-android_versioning)
 
 ## Getting Started
 
