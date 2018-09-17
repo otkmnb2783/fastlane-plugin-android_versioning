@@ -1,3 +1,11 @@
-lane :test do
-  android_versioning
+lane :show_version do
+  version = get_version_name(app_project_dir: '**/app')
+  UI.message(version)
+  version_code = get_version_code(app_project_dir: '**/app')
+  UI.message(version_code)
+end
+
+lane :bumpup do
+  increment_version_name(app_project_dir: '**/app', bump_type: 'minor')
+  increment_version_code(app_project_dir: '**/app')
 end
