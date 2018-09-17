@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/fastlane-plugin-android_versioning
+    docker:
+      - image: circleci/ruby:2.4.4-node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - fastlane-plugin-android_versioning-v2-{{ checksum "Gemfile" }}
+      - run:
+          name: Bundle Install
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          key: fastlane-plugin-android_versioning-v2-{{ checksum "Gemfile" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Bundle exec rake
+          command: bundle exec rake
