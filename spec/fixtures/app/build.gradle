@@ -4,6 +4,7 @@ android {
     buildToolsVersion "24.0.2"
 
     defaultConfig {
+        applicationIdSuffix ""
         minSdkVersion 14
         targetSdkVersion 22
         versionCode 12345

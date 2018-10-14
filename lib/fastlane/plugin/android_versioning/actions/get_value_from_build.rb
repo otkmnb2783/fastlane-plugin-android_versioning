@@ -5,17 +5,17 @@ module Fastlane
     class GetValueFromBuildAction < Action
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
+        regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
         value = ""
         found = false
         Dir.glob("#{app_project_dir}/build.gradle") do |path|
           begin
             File.open(path, 'r') do |file|
               file.each_line do |line|
-                unless line.include? "#{params[:key]} " and !found
+                unless line.match(regex) and !found
                   next
                 end
-                components = line.strip.split(' ').reject { |item| item.start_with?("//") }
-                value = components.last.tr("\"", "").tr("\'", "")
+                key, left, value, right, comment = line.match(regex).captures
                 break
               end
               file.close

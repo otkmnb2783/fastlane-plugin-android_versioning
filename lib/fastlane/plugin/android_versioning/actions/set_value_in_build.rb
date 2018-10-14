@@ -6,19 +6,18 @@ module Fastlane
     class SetValueInBuildAction < Action
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
+        regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
         found = false
         Dir.glob("#{app_project_dir}/build.gradle") do |path|
           begin
             temp_file = Tempfile.new('versioning')
             File.open(path, 'r') do |file|
               file.each_line do |line|
-                unless line.include? "#{params[:key]} " and !found
+                unless line.match(regex) and !found
                   temp_file.puts line
                   next
                 end
-                components = line.strip.split(' ')
-                value = components.last.tr("\"", "").tr("\'", "")
-                line.replace line.sub(value, params[:value].to_s)
+                line = line.gsub regex, "\\k<key>\\k<left>#{params[:value]}\\k<right>\\k<comment>"
                 found = true
                 temp_file.puts line
               end
