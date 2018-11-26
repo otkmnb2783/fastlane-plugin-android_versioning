@@ -45,7 +45,7 @@ describe Fastlane::Actions::IncrementVersionCodeAction do
       expect(Fastlane::Actions.lane_context[Fastlane::Actions::SharedValues::VERSION_CODE]).to eq("12346")
     end
 
-    it "should set VERSION_CODE to current minute" do
+    it "should set VERSION_CODE to current minute when option is -1" do
       expected_result = ((Time.now.to_f * 1000).to_i / (60 * 1000)).to_s
       expect(execute_lane_automatic_test).to eq(expected_result)
     end
