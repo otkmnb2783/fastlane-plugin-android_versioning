@@ -9,3 +9,5 @@ vendor
 /rdoc/
 fastlane/README.md
 fastlane/report.xml
+
+.idea/
