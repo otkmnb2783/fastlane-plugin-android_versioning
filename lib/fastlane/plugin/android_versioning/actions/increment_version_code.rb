@@ -10,18 +10,19 @@ module Fastlane
       def self.run(params)
         current_version_code = GetVersionCodeAction.run(params)
 
-        new_version_code = if params[:version_code].nil?
-                             current_version_code.to_i + 1
-                           elsif params[:version_code] == -1
-                             ((Time.now.to_f * 1000).to_i / (60 * 1000)).to_i
-                           else
-                             params[:version_code].to_i
-                           end
+        new_version_code =
+          if params[:version_code].nil?
+            current_version_code.to_i + 1
+          elsif params[:version_code] == -1
+            ((Time.now.to_f * 1000).to_i / (60 * 1000)).to_i
+          else
+            params[:version_code].to_i
+          end
 
         SetValueInBuildAction.run(
-            app_project_dir: params[:app_project_dir],
-            key: "versionCode",
-            value: new_version_code
+          app_project_dir: params[:app_project_dir],
+          key: "versionCode",
+          value: new_version_code
         )
         Actions.lane_context[SharedValues::VERSION_CODE] = new_version_code.to_s
         new_version_code.to_s
@@ -52,13 +53,13 @@ module Fastlane
 
       def self.details
         [
-            "This action will increment the version code directly in build.gradle . "
+          "This action will increment the version code directly in build.gradle . "
         ].join("\n")
       end
 
       def self.output
         [
-            ['VERSION_CODE', 'The new version code']
+          ['VERSION_CODE', 'The new version code']
         ]
       end
 
