@@ -9,6 +9,8 @@ module Fastlane
         value = ""
         found = false
         Dir.glob("#{app_project_dir}/build.gradle") do |path|
+          UI.verbose("path: #{path}")
+          UI.verbose("absolute_path: #{File.expand_path(path)}")
           begin
             File.open(path, 'r') do |file|
               file.each_line do |line|
