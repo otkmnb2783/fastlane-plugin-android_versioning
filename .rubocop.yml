@@ -11,20 +11,6 @@ Style/ClassCheck:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# This doesn't work with older versions of Ruby (pre 2.4.0)
-Style/SafeNavigation:
-  Enabled: false
-
-# This doesn't work with older versions of Ruby (pre 2.4.0)
-Performance/RegexpMatch:
-  Enabled: false
-
-# This suggests use of `tr` instead of `gsub`. While this might be more performant,
-# these methods are not at all interchangable, and behave very differently. This can
-# lead to people making the substitution without considering the differences.
-Performance/StringReplacement:
-  Enabled: false
-
 # .length == 0 is also good, we don't always want .zero?
 Style/NumericPredicate:
   Enabled: false
@@ -82,10 +68,10 @@ Lint/UselessAssignment:
     - '**/spec/**/*'
 
 # We could potentially enable the 2 below:
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 # HoundCI doesn't like this rule
@@ -101,7 +87,7 @@ Style/SymbolArray:
   Enabled: false
 
 # We still support Ruby 2.0.0
-Layout/IndentHeredoc:
+Layout/HeredocIndentation:
   Enabled: false
 
 # This cop would not work fine with rspec
@@ -110,7 +96,7 @@ Style/MixinGrouping:
     - '**/spec/**/*'
 
 # Sometimes we allow a rescue block that doesn't contain code
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: false
 
 # Cop supports --auto-correct.
@@ -165,10 +151,6 @@ Style/AndOr:
 Metrics/ClassLength:
   Max: 320
 
-
-# Configuration parameters: AllowURI, URISchemes.
-Metrics/LineLength:
-  Max: 370
 
 # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:

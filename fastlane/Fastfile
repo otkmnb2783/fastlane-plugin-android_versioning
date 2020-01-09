@@ -4,22 +4,42 @@ lane :show_version do
   version_code = get_version_code(app_project_dir: '**/app')
   UI.message("Default: " + version_code)
 
-  version_demo = get_version_name(app_project_dir: '**/app', flavor: "demo")
+  version_demo = get_version_name(
+    app_project_dir: '**/app',
+    flavor: 'demo'
+  )
   UI.message("demo flavor: " + version_demo)
-  version_code_demo = get_version_code(app_project_dir: '**/app', flavor: "demo")
+  version_code_demo = get_version_code(
+    app_project_dir: '**/app',
+    flavor: 'demo'
+  )
   UI.message("demo flavor: " + version_code_demo)
 
-  version_qa = get_version_name(app_project_dir: '**/app', flavor: "qa")
+  version_qa = get_version_name(
+    app_project_dir: '**/app',
+    flavor: 'qa'
+  )
   UI.message("qa flavor: " + version_qa)
-  version_code_qa = get_version_code(app_project_dir: '**/app', flavor: "qa")
+  version_code_qa = get_version_code(
+    app_project_dir: '**/app',
+    flavor: 'qa'
+  )
   UI.message("qa flavor: " + version_code_qa)
 end
 
 lane :bumpup do
   increment_version_name(app_project_dir: '**/app', bump_type: 'minor')
   increment_version_code(app_project_dir: '**/app')
-  increment_version_name(app_project_dir: '**/app', bump_type: 'minor', flavor: "demo")
+  increment_version_name(
+    app_project_dir: '**/app',
+    bump_type: 'minor',
+    flavor: 'demo'
+  )
   increment_version_code(app_project_dir: '**/app', flavor: "demo")
-  increment_version_name(app_project_dir: '**/app', bump_type: 'minor', flavor: "qa")
+  increment_version_name(
+    app_project_dir: '**/app',
+    bump_type: 'minor',
+    flavor: 'qa'
+  )
   increment_version_code(app_project_dir: '**/app', flavor: "qa")
 end
