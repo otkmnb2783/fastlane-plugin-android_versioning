@@ -27,7 +27,7 @@ module Fastlane
                 end
 
                 if flavorSpecified and !flavorFound
-                  unless line.include? flavor
+                  unless line.include? " #{flavor} "
                     temp_file.puts line
                     next
                   end

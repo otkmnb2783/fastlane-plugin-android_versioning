@@ -13,12 +13,12 @@ android {
 
     productFlavors {
       demo {
-        applicationId "com.foo.bar"
+        applicationId "com.foo.qa.demo"
         versionCode 123
         versionName "1.2.1"
       }
       qa {
-        applicationId "com.foo.bar.qa"
+        applicationId "com.foo.qa.demo.qa"
         versionCode 456
         versionName "1.1.1"
       }
