@@ -31,6 +31,7 @@ module Fastlane
         end
         SetValueInBuildAction.run(
           app_project_dir: params[:app_project_dir],
+          flavor: params[:flavor],
           key: "versionName",
           value: new_version
         )
@@ -49,6 +50,11 @@ module Fastlane
                                   optional: true,
                                       type: String,
                              default_value: "android/app"),
+          FastlaneCore::ConfigItem.new(key: :flavor,
+                                    env_name: "ANDROID_VERSIONING_FLAVOR",
+                                 description: "The product flavor name (optional)",
+                                    optional: true,
+                                        type: String),
           FastlaneCore::ConfigItem.new(key: :bump_type,
                                   env_name: "ANDROID_VERSIONING_BUMP_TYPE",
                                description: "Change to a specific type (optional)",

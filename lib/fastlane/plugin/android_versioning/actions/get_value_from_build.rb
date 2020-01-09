@@ -6,14 +6,33 @@ module Fastlane
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
         regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
+        flavor = params[:flavor]
+        flavorSpecified = !(flavor.nil? or flavor.empty?)
         value = ""
         found = false
+        flavorFound = false
+        productFlavorsSection = false
         Dir.glob("#{app_project_dir}/build.gradle") do |path|
           UI.verbose("path: #{path}")
           UI.verbose("absolute_path: #{File.expand_path(path)}")
           begin
             File.open(path, 'r') do |file|
               file.each_line do |line|
+
+                if flavorSpecified and !productFlavorsSection
+                  unless line.include? "productFlavors"
+                    next
+                  end
+                  productFlavorsSection = true
+                end
+
+                if flavorSpecified and !flavorFound
+                  unless line.include? flavor
+                    next
+                  end
+                  flavorFound = true
+                end
+
                 unless line.match(regex) and !found
                   next
                 end
@@ -38,6 +57,11 @@ module Fastlane
                                   optional: true,
                                       type: String,
                              default_value: "android/app"),
+          FastlaneCore::ConfigItem.new(key: :flavor,
+                                    env_name: "ANDROID_VERSIONING_FLAVOR",
+                                 description: "The product flavor name (optional)",
+                                    optional: true,
+                                        type: String),
           FastlaneCore::ConfigItem.new(key: :key,
                                description: "The property key",
                                       type: String)

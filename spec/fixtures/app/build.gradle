@@ -11,4 +11,17 @@ android {
         versionName "1.0.0" //asd
     }
 
+    productFlavors {
+      demo {
+        applicationId "com.foo.bar"
+        versionCode 123
+        versionName "1.2.1"
+      }
+      qa {
+        applicationId "com.foo.bar.qa"
+        versionCode 456
+        versionName "1.1.1"
+      }
+    }
+
 }

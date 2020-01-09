@@ -6,6 +6,7 @@ module Fastlane
       def self.run(params)
         GetValueFromBuildAction.run(
           app_project_dir: params[:app_project_dir],
+          flavor: params[:flavor],
           key: "versionCode"
         )
       end
@@ -20,7 +21,12 @@ module Fastlane
                                  description: "The path to the application source folder in the Android project (default: android/app)",
                                     optional: true,
                                         type: String,
-                               default_value: "android/app")
+                               default_value: "android/app"),
+          FastlaneCore::ConfigItem.new(key: :flavor,
+                                    env_name: "ANDROID_VERSIONING_FLAVOR",
+                                 description: "The product flavor name (optional)",
+                                    optional: true,
+                                        type: String)
         ]
       end
 
