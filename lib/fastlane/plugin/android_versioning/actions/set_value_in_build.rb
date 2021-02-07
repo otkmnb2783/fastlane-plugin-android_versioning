@@ -9,6 +9,7 @@ module Fastlane
         regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
         flavor = params[:flavor]
         flavorSpecified = !(flavor.nil? or flavor.empty?)
+        regex_flavor = Regexp.new(/[ \t]#{flavor}[ \t]/)
         found = false
         productFlavorsSection = false
         flavorFound = false
@@ -17,7 +18,7 @@ module Fastlane
             temp_file = Tempfile.new('versioning')
             File.open(path, 'r') do |file|
               file.each_line do |line|
-                
+
                 if flavorSpecified and !productFlavorsSection
                   unless line.include? "productFlavors" or productFlavorsSection
                     temp_file.puts line
@@ -27,7 +28,7 @@ module Fastlane
                 end
 
                 if flavorSpecified and !flavorFound
-                  unless line.include? " #{flavor} "
+                  unless line.match(regex_flavor)
                     temp_file.puts line
                     next
                   end

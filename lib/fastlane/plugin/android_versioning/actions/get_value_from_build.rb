@@ -8,6 +8,7 @@ module Fastlane
         regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
         flavor = params[:flavor]
         flavorSpecified = !(flavor.nil? or flavor.empty?)
+        regex_flavor = Regexp.new(/[ \t]#{flavor}[ \t]/)
         value = ""
         found = false
         flavorFound = false
@@ -27,7 +28,7 @@ module Fastlane
                 end
 
                 if flavorSpecified and !flavorFound
-                  unless line.include? " #{flavor} "
+                  unless line.match(regex_flavor)
                     next
                   end
                   flavorFound = true
