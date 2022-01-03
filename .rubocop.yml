@@ -28,7 +28,7 @@ Naming/VariableNumber:
   Enabled: false
 
 # This is used a lot across the fastlane code base for config files
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Enabled: false
 
 Style/MissingRespondToMissing:
@@ -58,14 +58,10 @@ Style/TernaryParentheses:
 Style/EmptyMethod:
   Enabled: false
 
-# It's better to be more explicit about the type
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 # specs sometimes have useless assignments, which is fine
 Lint/UselessAssignment:
   Exclude:
-    - '**/spec/**/*'
+    - "**/spec/**/*"
 
 # We could potentially enable the 2 below:
 Layout/FirstHashElementIndentation:
@@ -93,7 +89,7 @@ Layout/HeredocIndentation:
 # This cop would not work fine with rspec
 Style/MixinGrouping:
   Exclude:
-    - '**/spec/**/*'
+    - "**/spec/**/*"
 
 # Sometimes we allow a rescue block that doesn't contain code
 Lint/SuppressedException:
@@ -151,7 +147,6 @@ Style/AndOr:
 Metrics/ClassLength:
   Max: 320
 
-
 # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:
   Max: 17
@@ -185,7 +180,7 @@ Lint/UnusedMethodArgument:
 # the let(:key) { ... }
 Lint/ParenthesesAsGroupedExpression:
   Exclude:
-    - '**/spec/**/*'
+    - "**/spec/**/*"
 
 # This would reject is_ in front of methods
 # We use `is_supported?` everywhere already
@@ -199,27 +194,27 @@ Style/PerlBackrefs:
 # Disable '+ should be surrounded with a single space' for xcodebuild_spec.rb
 Layout/SpaceAroundOperators:
   Exclude:
-    - '**/spec/actions_specs/xcodebuild_spec.rb'
+    - "**/spec/actions_specs/xcodebuild_spec.rb"
 
 AllCops:
   Include:
-    - '**/fastlane/Fastfile'
+    - "**/fastlane/Fastfile"
   Exclude:
-    - '**/lib/assets/custom_action_template.rb'
-    - './vendor/**/*'
+    - "**/lib/assets/custom_action_template.rb"
+    - "./vendor/**/*"
 
 # They have not to be snake_case
 Naming/FileName:
   Exclude:
-    - '**/Dangerfile'
-    - '**/Brewfile'
-    - '**/Gemfile'
-    - '**/Podfile'
-    - '**/Rakefile'
-    - '**/Fastfile'
-    - '**/Deliverfile'
-    - '**/Snapfile'
-    - '**/*.gemspec'
+    - "**/Dangerfile"
+    - "**/Brewfile"
+    - "**/Gemfile"
+    - "**/Podfile"
+    - "**/Rakefile"
+    - "**/Fastfile"
+    - "**/Deliverfile"
+    - "**/Snapfile"
+    - "**/*.gemspec"
 
 # We're not there yet
 Style/Documentation:

@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/fastlane-plugin-android_versioning
     docker:
-      - image: circleci/ruby:2.4.4-node
+      - image: circleci/ruby:2.7.4-node
     steps:
       - checkout
       - restore_cache:
