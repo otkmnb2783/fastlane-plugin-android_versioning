@@ -6,7 +6,7 @@ module Fastlane
     class SetValueInBuildAction < Action
       def self.run(params)
         app_project_dir ||= params[:app_project_dir]
-        regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
+        regex = Regexp.new(/(?<key>#{params[:key]}\s+)(?<left>[\'\"]?)(?<value>[a-zA-Z0-9\-\.\_]*)(?<right>[\'\"]?)(?<comment>.*)/)
         flavor = params[:flavor]
         flavorSpecified = !(flavor.nil? or flavor.empty?)
         regex_flavor = Regexp.new(/[ \t]#{flavor}[ \t]/)
