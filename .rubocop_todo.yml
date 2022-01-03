@@ -12,28 +12,28 @@
 # Include: **/*.gemspec
 Gemspec/OrderedDependencies:
   Exclude:
-    - 'fastlane-plugin-android_versioning.gemspec'
+    - "fastlane-plugin-android_versioning.gemspec"
 
 # Offense count: 1
 # Configuration parameters: Include.
 # Include: **/*.gemspec
 Gemspec/RequiredRubyVersion:
   Exclude:
-    - 'fastlane-plugin-android_versioning.gemspec'
+    - "fastlane-plugin-android_versioning.gemspec"
 
 # Offense count: 3
 # Cop supports --auto-correct.
 Layout/EmptyLineAfterGuardClause:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EmptyLineBetweenMethodDefs, EmptyLineBetweenClassDefs, EmptyLineBetweenModuleDefs, AllowAdjacentOneLineDefs, NumberOfEmptyLines.
 Layout/EmptyLineBetweenDefs:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb"
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -41,8 +41,8 @@ Layout/EmptyLineBetweenDefs:
 # SupportedStyles: empty_lines, no_empty_lines
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -50,7 +50,7 @@ Layout/EmptyLinesAroundBlockBody:
 # SupportedStyles: special_inside_parentheses, consistent, align_brackets
 Layout/FirstArrayElementIndentation:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb"
 
 # Offense count: 61
 # Cop supports --auto-correct.
@@ -60,18 +60,26 @@ Layout/FirstArrayElementIndentation:
 # SupportedLastArgumentHashStyles: always_inspect, always_ignore, ignore_implicit, ignore_explicit
 Layout/HashAlignment:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_version_code.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 6
 Lint/UselessAssignment:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'spec/increment_version_code_spec.rb'
-    - 'spec/increment_version_name_spec.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "spec/increment_version_code_spec.rb"
+    - "spec/increment_version_name_spec.rb"
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 4
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
@@ -107,21 +115,21 @@ Metrics/PerceivedComplexity:
 # MethodDefinitionMacros: define_method, define_singleton_method
 Naming/PredicateName:
   Exclude:
-    - 'spec/**/*'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_version_code.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "spec/**/*"
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 19
 # Configuration parameters: EnforcedStyle, AllowedIdentifiers.
 # SupportedStyles: snake_case, camelCase
 Naming/VariableName:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 8
 # Cop supports --auto-correct.
@@ -129,35 +137,35 @@ Naming/VariableName:
 # SupportedStyles: always, conditionals
 Style/AndOr:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 7
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/fastlane/plugin/android_versioning.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_version_code.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/get_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "spec/**/*"
+    - "test/**/*"
+    - "lib/fastlane/plugin/android_versioning.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/get_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_code.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/increment_version_name.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/Encoding:
   Exclude:
-    - 'fastlane-plugin-android_versioning.gemspec'
+    - "fastlane-plugin-android_versioning.gemspec"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/ExpandPathArguments:
   Exclude:
-    - 'fastlane-plugin-android_versioning.gemspec'
+    - "fastlane-plugin-android_versioning.gemspec"
 
 # Offense count: 19
 # Cop supports --auto-correct.
@@ -170,7 +178,7 @@ Style/FrozenStringLiteralComment:
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -178,35 +186,35 @@ Style/IfUnlessModifier:
 # SupportedStyles: literals, strict
 Style/MutableConstant:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/version.rb'
+    - "lib/fastlane/plugin/android_versioning/version.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: PreferredDelimiters.
 Style/PercentLiteralDelimiters:
   Exclude:
-    - 'fastlane-plugin-android_versioning.gemspec'
+    - "fastlane-plugin-android_versioning.gemspec"
 
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/RedundantBegin:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 12
 # Cop supports --auto-correct.
 Style/RedundantRegexpEscape:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
-    - 'lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
+    - "lib/fastlane/plugin/android_versioning/actions/set_value_in_build.rb"
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
 Style/RedundantReturn:
   Exclude:
-    - 'lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb'
+    - "lib/fastlane/plugin/android_versioning/actions/get_value_from_build.rb"
 
 # Offense count: 131
 # Cop supports --auto-correct.
